@@ -1,29 +1,12 @@
 // Budget API
 
 const express = require('express');
-const cors = require('cors');
+//const cors = require('cors');
 const app = express();
 const port = 3000;
-
-app.use(cors());
-
-const budget = {
-    myBudget: [
-        {
-            title: 'Eat out',
-            budget: 25
-        },
-        {
-            title: 'Rent',
-            budget: 275
-        },
-        {
-            title: 'Grocery',
-            budget: 110
-        },
-    ]
-};
-
+const budget = require("./data.json");
+app.use("/",express.static("public"));
+//app.use(cors());
 
 app.get('/budget', (req, res) => {
     res.json(budget);
